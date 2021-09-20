@@ -1,0 +1,41 @@
+<p>
+  <label>Title</label>
+  <input
+    type="text"
+    value="<%= article.title %>"
+    class="w3-input w3-border"
+    name="title"
+  />
+</p>
+
+<p>
+  Description <br />
+  <textarea
+    class="w3-input w3-border"
+    type="textarea"
+    style="max-width: 800px"
+    rows="1"
+    cols="10    "
+    name="description"
+  >
+<%= article.description%></textarea
+  >
+</p>
+<p>
+  Markdown <br />
+  <textarea
+    class="w3-input w3-border"
+    type="textarea"
+    style="max-width: 800px"
+    rows="10"
+    cols="10    "
+    name="markdown"
+  >
+<%= article.markdown %></textarea
+  >
+</p>
+
+<p class="w3-bar">
+  <a href="/" class="w3-button w3-light-grey w3-padding">Close</a>
+  <button class="w3-button w3-green">Save</button>
+</p>

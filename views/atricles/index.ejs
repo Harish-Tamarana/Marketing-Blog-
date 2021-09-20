@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 200vh;
+        background-color: #ffffff;
+        /* font-family: "Padauk", sans-serif; */
+        font-family: "Podkova", serif;
+        /* font-family: "Poppins", sans-serif; */
+      }
+
+      nav {
+        /* position: fixed; */
+        left: 0;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px 25px;
+        transition: 0.6s;
+      }
+
+      nav .logo {
+        position: relative;
+        font-size: 2em;
+        font-weight: 700;
+        text-decoration: none;
+        color: #001d68;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 40px;
+        transition: 0.6s;
+      }
+
+      nav ul {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        transition: 0.6s;
+        align-items: center;
+      }
+      nav ul li {
+        position: relative;
+        list-style: none;
+      }
+      nav ul a {
+        position: relative;
+        text-decoration: none;
+        margin: 0 5px;
+        transition: 0.6s;
+        color: #686050;
+        border: 2px solid #797979;
+        padding: 4px 9px;
+        border-radius: 5px;
+        font-size: 0.9em;
+        font-weight: 500px;
+      }
+
+      .main_nav {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 10px;
+        transition: 0.6s;
+        background: linear-gradient(90deg, #004048 0%, #00adc5 100%);
+      }
+
+      .main_nav ul {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        transition: 0.6s;
+        align-items: center;
+      }
+      .main_nav ul li {
+        position: relative;
+        list-style: none;
+      }
+      .main_nav ul a {
+        position: relative;
+        text-decoration: none;
+        margin: 0 5px;
+        transition: 0.6s;
+        color: #ffffff;
+        padding: 4px 9px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 14px;
+      }
+      .main_nav i {
+        margin-left: 5px;
+      }
+      .post_btn {
+        position: relative;
+        font-size: 2em;
+        font-weight: 700;
+        text-decoration: none;
+        color: #006066;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 25px;
+        transition: 0.6s;
+        margin-right: 20px;
+        border: 2px solid transparent;
+        padding: 0px 19px;
+        background-color: #ffffff;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w3-container w3-padding-large">
+      <h1><strong>Blog Articles</strong></h1>
+      <a
+        href="/articles/new"
+        class="w3-button w3-round w3-large w3-green w3-section"
+        >New Aritcle</a
+      >
+      <% articles.forEach(article=>{ %>
+      <div
+        class="w3-container w3-border w3-card w3-section w3-padding-16"
+        style="max-width: 1000px; margin-bottom: 32px !important"
+      >
+        <h4><%= article.title %></h4>
+        <p class="w3-opacity"><%= article.createdAt.toLocaleDateString()%></p>
+        <p><%= article.description%></p>
+        <div class="w3-bar">
+          <form
+            class=""
+            action="/articles/<%=  article.id  %>?_method=DELETE"
+            method="POST"
+          >
+            <a href="/articles/<%= article.slug %>" class="w3-button w3-teal"
+              >Read More</a
+            >
+            <a
+              href="/articles/edit/<%= article.id %>"
+              class="w3-button w3-blue-grey"  
+              >Edit</a
+            >
+            <button class="w3-button w3-red" type="submit">Delete</button>
+          </form>
+        </div>
+      </div>
+      <%})%>
+    </div>
+  </body>
+</html>
